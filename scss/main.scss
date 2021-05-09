@@ -12,6 +12,17 @@
     flex-direction: $direction;
 }
 
+@mixin darkMode($dark-theme: true) {
+    @if $dark-theme == false {
+        background: white;
+        color: black;
+    } 
+    @else {
+        background: darken($primary-color, 0%);
+        color: lighten($text-color, 0%)
+    }
+}
+
 body {
     background: $primary-color;
     color: $text-color;
@@ -29,4 +40,8 @@ body {
             color: red;
         }
     }
+}
+
+.light {
+    @include darkMode($dark-theme: true);
 }
