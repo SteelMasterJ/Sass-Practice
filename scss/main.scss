@@ -23,13 +23,19 @@
     }
 }
 
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
 body {
     background: $primary-color;
     color: $text-color;
 }
 
 .main {
-    @include flexCenter(column);
+    @include flexCenter(row);
     width: 80%;
     margin: 0 auto;
 
@@ -39,6 +45,10 @@ body {
         &:hover {
             color: red;
         }
+    }
+
+    @include mobile {
+        flex-direction: column;
     }
 }
 
